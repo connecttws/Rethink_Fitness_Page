@@ -12,7 +12,7 @@ import SectionDivider from "@/components/SectionDivider";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-[100dvh] w-full overflow-x-hidden bg-background text-foreground">
       <Navbar />
       <HeroSection />
       

@@ -7,13 +7,14 @@
  *   strong — brighter glow for "hero-level" sections (default false)
  */
 export default function SectionCorners({
-  size = 56,
+  size,
   strong = false,
 }: {
   size?: number;
   strong?: boolean;
 }) {
-  const s = `${size}px`;
+  const customSize = size ? `${size}px` : undefined;
+  const responsiveClass = !size ? "w-7 h-7 sm:w-10 sm:h-10 md:w-14 md:h-14" : "";
   const strongGlow = "3px -3px 16px rgba(204,0,0,0.65), 6px -6px 32px rgba(204,0,0,0.3)";
   const softGlow   = "2px -2px 10px rgba(204,0,0,0.45), 4px -4px 20px rgba(204,0,0,0.2)";
 
@@ -33,60 +34,72 @@ export default function SectionCorners({
       {/* ── Top-right (bright) ── */}
       <div
         aria-hidden
+        className={responsiveClass}
         style={{
           position: "absolute",
           top: 0, right: 0,
-          width: s, height: s,
+          width: customSize, height: customSize,
           borderTop: "2px solid #CC0000",
           borderRight: "2px solid #CC0000",
           boxShadow: topRight,
           pointerEvents: "none",
           zIndex: 2,
+          contain: "paint",
+          transform: "translateZ(0)",
         }}
       />
 
       {/* ── Top-left (subtle) ── */}
       <div
         aria-hidden
+        className={responsiveClass}
         style={{
           position: "absolute",
           top: 0, left: 0,
-          width: s, height: s,
+          width: customSize, height: customSize,
           borderTop: "2px solid rgba(204,0,0,0.45)",
           borderLeft: "2px solid rgba(204,0,0,0.45)",
           boxShadow: topLeft,
           pointerEvents: "none",
           zIndex: 2,
+          contain: "paint",
+          transform: "translateZ(0)",
         }}
       />
 
       {/* ── Bottom-left (medium) ── */}
       <div
         aria-hidden
+        className={responsiveClass}
         style={{
           position: "absolute",
           bottom: 0, left: 0,
-          width: s, height: s,
+          width: customSize, height: customSize,
           borderBottom: "2px solid rgba(204,0,0,0.55)",
           borderLeft: "2px solid rgba(204,0,0,0.55)",
           boxShadow: bottomLeft,
           pointerEvents: "none",
           zIndex: 2,
+          contain: "paint",
+          transform: "translateZ(0)",
         }}
       />
 
       {/* ── Bottom-right (subtle) ── */}
       <div
         aria-hidden
+        className={responsiveClass}
         style={{
           position: "absolute",
           bottom: 0, right: 0,
-          width: s, height: s,
+          width: customSize, height: customSize,
           borderBottom: "2px solid rgba(204,0,0,0.35)",
           borderRight: "2px solid rgba(204,0,0,0.35)",
           boxShadow: bottomRight,
           pointerEvents: "none",
           zIndex: 2,
+          contain: "paint",
+          transform: "translateZ(0)",
         }}
       />
     </>

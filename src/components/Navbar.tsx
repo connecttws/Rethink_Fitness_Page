@@ -10,8 +10,8 @@ export default function Navbar() {
   const { brand, navbar } = contentData.global;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/95 backdrop-blur-xl border-b border-[rgba(204,0,0,0.3)]"
-      style={{ boxShadow: "0 1px 30px rgba(204,0,0,0.08)" }}>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/95 backdrop-blur-md border-b border-[rgba(204,0,0,0.3)] gpu-layer"
+      style={{ boxShadow: "0 1px 20px rgba(204,0,0,0.08)" }}>
       {/* Animated shining top bar */}
       <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden">
         <div

@@ -11,7 +11,7 @@ export default function AboutSection() {
   const { about } = contentData.home;
 
   return (
-    <section id="about" className="py-24 md:py-36 bg-[#050505] relative overflow-hidden">
+    <section id="about" className="py-16 md:py-28 lg:py-36 bg-[#050505] relative overflow-hidden">
       <SectionCorners />
       {/* Ghost BG text */}
       <div className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden">
@@ -19,7 +19,7 @@ export default function AboutSection() {
       </div>
 
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-16 lg:gap-28">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-28">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -37,7 +37,7 @@ export default function AboutSection() {
               </span>
             </div>
 
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92] whitespace-pre-line">
+            <h2 className="text-[clamp(2rem,5vw,4rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92] whitespace-pre-line">
               {about.headline}
             </h2>
 
@@ -55,7 +55,7 @@ export default function AboutSection() {
               <div className="h-[1px] flex-1 bg-[var(--border)]" />
             </div>
 
-            <p className="text-[#BBBBBB] text-base md:text-[17px] leading-[1.8] max-w-sm">
+            <p className="text-[#BBBBBB] text-base md:text-[17px] leading-[1.8] max-w-xl lg:max-w-sm">
               {about.subtext}
             </p>
           </motion.div>
@@ -71,7 +71,7 @@ export default function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.08 * idx }}
-                  className="group flex items-center gap-4 p-5 border-b md:odd:border-r border-[var(--border)] transition-all duration-300 cursor-default"
+                  className="group flex items-center gap-4 p-3.5 sm:p-5 border-b md:odd:border-r border-[var(--border)] transition-all duration-300 cursor-default"
                   style={{ transition: "background 0.3s, box-shadow 0.3s" }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.background = "rgba(204,0,0,0.04)";

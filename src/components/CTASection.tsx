@@ -11,10 +11,10 @@ export default function CTASection() {
   return (
     <section
       id="cta"
-      className="py-28 md:py-40 relative overflow-hidden"
+      className="py-16 md:py-28 lg:py-40 relative overflow-hidden"
       style={{ background: "#0A0A0A" }}
     >
-      <SectionCorners strong size={72} />
+      <SectionCorners strong />
       {/* Red radial glow bg */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -76,7 +76,7 @@ export default function CTASection() {
           </div>
 
           {/* Headline with shimmer */}
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-[900] tracking-[-0.03em] leading-[0.9] text-shimmer whitespace-pre-line">
+          <h2 className="text-[clamp(2rem,6vw,4.75rem)] font-[900] tracking-[-0.03em] leading-[0.9] text-shimmer whitespace-pre-line">
             {cta.headline}
           </h2>
 
@@ -85,14 +85,15 @@ export default function CTASection() {
           </p>
 
           {/* Glowing CTA button */}
-          <div className="pt-4">
+          <div className="pt-4 flex justify-center">
             <a
               href={cta.button.href}
-              className="inline-flex items-center gap-3 font-bold text-sm tracking-[0.1em] uppercase px-10 py-5 text-white transition-all duration-300 hover:-translate-y-1 active:translate-y-0"
+              className="inline-flex items-center justify-center gap-3 font-bold text-sm tracking-[0.1em] uppercase px-8 sm:px-10 py-4 sm:py-5 text-white transition-all duration-300 hover:-translate-y-1 active:translate-y-0 w-full sm:w-auto text-center"
               style={{
                 background: "#CC0000",
                 boxShadow: "0 0 25px rgba(204,0,0,0.55), 0 0 50px rgba(204,0,0,0.25), 0 8px 30px rgba(204,0,0,0.35)",
                 animation: "glow-pulse 2.5s ease-in-out infinite",
+                willChange: "opacity, transform",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 0 40px rgba(204,0,0,0.85), 0 0 80px rgba(204,0,0,0.45), 0 12px 40px rgba(204,0,0,0.5)";

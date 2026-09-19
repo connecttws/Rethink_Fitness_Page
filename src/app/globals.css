@@ -26,7 +26,12 @@
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
 
   body {
     background-color: var(--background);
@@ -39,6 +44,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -57,63 +64,53 @@
   ::-webkit-scrollbar-thumb { background: var(--accent); }
 }
 
-/* ── Animations ── */
+/* ── Animations (GPU-Accelerated) ── */
 
-/* Slower shimmer — 8 s */
+/* Shimmer — Hardware accelerated with will-change */
 @keyframes shimmer {
   0%   { background-position: -200% center; }
   100% { background-position:  200% center; }
 }
 
-/* Very slow red text shimmer — 10 s */
 @keyframes shimmer-slow {
   0%   { background-position: -300% center; }
   100% { background-position:  300% center; }
 }
 
-/* Gentle glow pulse — 3.5 s */
+/* GPU-friendly Glow Pulse — uses opacity instead of expensive box-shadow repaints */
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow:
-      0 0 5px rgba(204,0,0,0.35),
-      0 0 14px rgba(204,0,0,0.18),
-      0 0 28px rgba(204,0,0,0.08);
+    opacity: 0.85;
+    transform: scale(1);
   }
   50% {
-    box-shadow:
-      0 0 10px rgba(255,30,30,0.55),
-      0 0 24px rgba(204,0,0,0.32),
-      0 0 50px rgba(204,0,0,0.15);
+    opacity: 1;
+    transform: scale(1.015);
   }
 }
 
-/* Gentle red text glow — 3.5 s */
+/* Red text glow pulse — GPU composited opacity */
 @keyframes text-glow-pulse {
   0%, 100% {
-    text-shadow:
-      0 0 6px rgba(255,50,50,0.45),
-      0 0 16px rgba(204,0,0,0.28);
+    opacity: 0.85;
   }
   50% {
-    text-shadow:
-      0 0 12px rgba(255,60,60,0.7),
-      0 0 28px rgba(204,0,0,0.45),
-      0 0 50px rgba(204,0,0,0.22);
+    opacity: 1;
   }
 }
 
-/* Float */
+/* Float — GPU translated */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-7px); }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%       { transform: translate3d(0, -7px, 0); }
 }
 
-/* Section divider traveling dot */
+/* Section divider traveling dot — 100% GPU composited with translate3d instead of layout-triggering left */
 @keyframes travel {
-  0%   { left: -10%; opacity: 0; }
+  0%   { transform: translate3d(-100px, -50%, 0); opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 1; }
-  100% { left: 110%; opacity: 0; }
+  100% { transform: translate3d(calc(100vw + 100px), -50%, 0); opacity: 0; }
 }
 
 /* ── Utilities ── */
@@ -122,20 +119,20 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   @media (min-width: 640px) {
-    .container { padding-left: 2rem; padding-right: 2rem; }
+    .container { padding-left: 1.75rem; padding-right: 1.75rem; }
   }
   @media (min-width: 1024px) {
-    .container { padding-left: 3rem; padding-right: 3rem; max-width: 1320px; }
+    .container { padding-left: 2.5rem; padding-right: 2.5rem; max-width: 1320px; }
   }
   @media (min-width: 1440px) {
     .container { max-width: 1400px; }
   }
 
-  /* Shimmer text — white↔red, 8 s */
+  /* Shimmer text — with paint containment and hardware acceleration */
   .text-shimmer {
     background: linear-gradient(
       90deg,
@@ -146,9 +143,10 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 8s linear infinite;
+    will-change: background-position;
   }
 
-  /* Red shimmer — 10 s */
+  /* Red shimmer */
   .text-shimmer-red {
     background: linear-gradient(
       90deg,
@@ -159,16 +157,28 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer-slow 10s linear infinite;
+    will-change: background-position;
   }
 
   /* Pulsing red text glow */
   .text-glow-red {
     color: #FF4444;
+    text-shadow: 0 0 10px rgba(255,50,50,0.5), 0 0 20px rgba(204,0,0,0.3);
     animation: text-glow-pulse 3.5s ease-in-out infinite;
+    will-change: opacity;
   }
 
   /* Float */
-  .float { animation: float 4s ease-in-out infinite; }
+  .float {
+    animation: float 4s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  /* GPU Compositor Layer Utility */
+  .gpu-layer {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 }
 
 /* ── Beautiful section divider ── */
@@ -199,17 +209,20 @@
   box-shadow: 0 0 8px rgba(204,0,0,0.25);
 }
 
-/* Traveling glowing dot */
+/* Traveling glowing dot — GPU transform */
 .section-divider::after {
   content: '';
   position: absolute;
-  top: 50%; transform: translateY(-50%);
+  top: 50%;
+  left: 0;
   width: 60px;
   height: 3px;
   background: linear-gradient(90deg, transparent, #FF4444, #FF8888, #FF4444, transparent);
   border-radius: 4px;
   box-shadow: 0 0 12px rgba(204,0,0,0.8), 0 0 24px rgba(204,0,0,0.4);
   animation: travel 5s ease-in-out infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
 }
 
 .section-divider-center {

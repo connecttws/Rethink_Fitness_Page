@@ -10,7 +10,7 @@ export default function WhyChooseUsSection() {
   if (!whyChooseUs) return null;
 
   return (
-    <section className="py-24 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+    <section className="py-16 md:py-28 lg:py-36 bg-[#0A0A0A] relative overflow-hidden">
       <SectionCorners />
       <div
         className="absolute top-0 left-0 right-0 h-[1px]"
@@ -27,7 +27,7 @@ export default function WhyChooseUsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10 md:mb-16"
         >
           <div className="flex items-center gap-3 mb-5">
             <div
@@ -38,7 +38,7 @@ export default function WhyChooseUsSection() {
               The Difference
             </span>
           </div>
-          <h2 className="text-[clamp(2.2rem,5vw,4rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92]">
+          <h2 className="text-[clamp(1.85rem,5vw,3.75rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92]">
             {whyChooseUs.headline}
           </h2>
         </motion.div>
@@ -51,7 +51,7 @@ export default function WhyChooseUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.08 * idx }}
-              className="group flex items-center gap-5 p-6 bg-[#0C0C0C] cursor-default transition-all duration-300"
+              className="group flex items-center gap-4 sm:gap-5 p-4 sm:p-6 bg-[#0C0C0C] cursor-default transition-all duration-300"
               style={{ border: "1px solid #1C1C1C", transition: "border-color 0.3s, box-shadow 0.3s" }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor = "rgba(204,0,0,0.45)";

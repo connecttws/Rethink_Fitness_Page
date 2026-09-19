@@ -8,7 +8,7 @@ export default function TransformationSection() {
   const { transformation } = contentData.home;
 
   return (
-    <section id="process" className="py-24 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+    <section id="process" className="py-16 md:py-28 lg:py-36 bg-[#0A0A0A] relative overflow-hidden">
       <SectionCorners />
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[var(--accent)]/[0.04] to-transparent pointer-events-none" />
 
@@ -24,7 +24,7 @@ export default function TransformationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-24"
+          className="mb-10 md:mb-20"
         >
           <div className="flex items-center gap-3 mb-5">
             <div
@@ -35,7 +35,7 @@ export default function TransformationSection() {
               {transformation.eyeBrow}
             </span>
           </div>
-          <h2 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92]">
+          <h2 className="text-[clamp(2rem,5.5vw,4.5rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92]">
             {transformation.headline}
           </h2>
         </motion.div>
@@ -58,17 +58,17 @@ export default function TransformationSection() {
 
             {/* Shining corners */}
             <div
-              className="absolute top-0 left-0 w-14 h-14 border-t-[3px] border-l-[3px]"
+              className="absolute top-0 left-0 w-8 h-8 sm:w-14 sm:h-14 border-t-[3px] border-l-[3px]"
               style={{ borderColor: "#CC0000", boxShadow: "-2px -2px 15px rgba(204,0,0,0.6), -4px -4px 30px rgba(204,0,0,0.25)" }}
             />
             <div
-              className="absolute bottom-0 right-0 w-14 h-14 border-b-[3px] border-r-[3px]"
+              className="absolute bottom-0 right-0 w-8 h-8 sm:w-14 sm:h-14 border-b-[3px] border-r-[3px]"
               style={{ borderColor: "rgba(204,0,0,0.5)", boxShadow: "2px 2px 12px rgba(204,0,0,0.35)" }}
             />
 
             {/* Floating label */}
             <div
-              className="absolute -bottom-5 -right-2 md:-right-5 bg-[var(--accent)] px-5 py-3.5 float"
+              className="absolute bottom-3 right-3 sm:-bottom-5 sm:-right-5 bg-[var(--accent)] px-4 sm:px-5 py-2.5 sm:py-3.5 float"
               style={{ boxShadow: "0 0 20px rgba(204,0,0,0.65), 0 0 40px rgba(204,0,0,0.3)" }}
             >
               <p className="text-white text-[11px] font-bold tracking-[0.2em] uppercase leading-tight">Proven<br />Results</p>
@@ -84,7 +84,7 @@ export default function TransformationSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.12 * idx }}
-                className="group flex items-start gap-6 py-7 border-b border-[var(--border)] last:border-b-0 px-2 transition-all duration-300"
+                className="group flex items-start gap-4 sm:gap-6 py-5 sm:py-7 border-b border-[var(--border)] last:border-b-0 px-2 transition-all duration-300"
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = "rgba(204,0,0,0.3)";
                   (e.currentTarget as HTMLElement).style.boxShadow = "inset 3px 0 0 rgba(204,0,0,0.5)";

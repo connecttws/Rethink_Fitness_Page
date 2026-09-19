@@ -9,7 +9,7 @@ export default function ProgramsSection() {
   const { programs } = contentData.home;
 
   return (
-    <section id="programs" className="py-24 md:py-36 bg-[#050505] relative overflow-hidden">
+    <section id="programs" className="py-16 md:py-28 lg:py-36 bg-[#050505] relative overflow-hidden">
       <SectionCorners />
       <div
         className="absolute top-0 left-0 right-0 h-[1px]"
@@ -26,7 +26,7 @@ export default function ProgramsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14 md:mb-20"
+          className="mb-10 md:mb-20"
         >
           <div className="flex items-center gap-3 mb-5">
             <div
@@ -37,7 +37,7 @@ export default function ProgramsSection() {
               {programs.eyeBrow}
             </span>
           </div>
-          <h2 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92]">
+          <h2 className="text-[clamp(2rem,5.5vw,4.5rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92]">
             {programs.headline}
           </h2>
 
@@ -48,11 +48,12 @@ export default function ProgramsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-10 p-7 md:p-9 bg-[#0A0A0A] max-w-3xl"
+              className="mt-8 md:mt-10 p-5 sm:p-7 md:p-9 bg-[#0A0A0A] max-w-3xl"
               style={{
                 border: "1px solid rgba(204,0,0,0.3)",
                 boxShadow: "0 0 20px rgba(204,0,0,0.08), inset 0 0 30px rgba(204,0,0,0.03)",
                 animation: "glow-pulse 3s ease-in-out infinite",
+                willChange: "opacity, transform",
               }}
             >
               <div className="flex items-center gap-3 mb-5">
@@ -90,15 +91,15 @@ export default function ProgramsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.12 * idx }}
-              className="relative flex flex-col group"
+              className={`relative flex flex-col group ${program.highlighted ? "md:-translate-y-1.5" : ""}`}
               style={
                 program.highlighted
                   ? {
                       background: "#CC0000",
                       border: "1px solid #CC0000",
                       boxShadow: "0 0 30px rgba(204,0,0,0.45), 0 0 60px rgba(204,0,0,0.2), 0 20px 50px rgba(204,0,0,0.25)",
-                      transform: "translateY(-6px)",
                       animation: "glow-pulse 2.5s ease-in-out infinite",
+                      willChange: "opacity, transform",
                     }
                   : {
                       background: "#0C0C0C",
@@ -130,7 +131,7 @@ export default function ProgramsSection() {
                 />
               )}
 
-              <div className="p-7 md:p-8 flex flex-col flex-1">
+              <div className="p-6 sm:p-7 md:p-8 flex flex-col flex-1">
                 <span className={`text-[10px] font-bold tracking-[0.25em] uppercase mb-3 ${program.highlighted ? "text-white/70" : "text-glow-red"}`}>
                   {program.subtitle}
                 </span>
@@ -142,7 +143,7 @@ export default function ProgramsSection() {
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
                     <span
-                      className={`text-4xl md:text-5xl font-[900] font-[Oswald] tracking-tight ${program.highlighted ? "text-white" : "text-shimmer"}`}
+                      className="text-4xl md:text-5xl font-[900] font-[Oswald] tracking-tight text-white"
                     >
                       {program.price}
                     </span>

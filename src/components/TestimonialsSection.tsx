@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import contentData from "@/data/content.json";
@@ -40,7 +41,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonials" className="py-24 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+    <section id="testimonials" className="py-16 md:py-28 lg:py-36 bg-[#0A0A0A] relative overflow-hidden">
       <SectionCorners />
       {/* Ghost BG text */}
       <div className="absolute inset-0 flex items-center justify-start pl-4 pointer-events-none select-none overflow-hidden">
@@ -51,7 +52,7 @@ export default function TestimonialsSection() {
 
       <div className="container relative z-10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-4 sm:gap-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +68,7 @@ export default function TestimonialsSection() {
                 {testimonials.eyeBrow}
               </span>
             </div>
-            <h2 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92]">
+            <h2 className="text-[clamp(2rem,5.5vw,4.5rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92]">
               {testimonials.headline}
             </h2>
           </motion.div>
@@ -75,10 +76,12 @@ export default function TestimonialsSection() {
 
         {/* Full Image Frame Carousel */}
         <div 
-          className="relative w-full max-w-4xl mx-auto bg-[#0C0C0C] transition-all duration-300 group overflow-hidden aspect-[3/4] md:aspect-[4/3]"
+          className="relative w-full max-w-4xl mx-auto bg-[#0C0C0C] transition-all duration-300 group overflow-hidden aspect-[3/4] md:aspect-[4/3] gpu-layer"
           style={{
             border: "1px solid #1C1C1C",
             boxShadow: "0 0 30px rgba(0,0,0,0.6)",
+            contain: "paint",
+            touchAction: "pan-y",
           }}
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLElement).style.borderColor = "rgba(204,0,0,0.4)";
@@ -104,6 +107,7 @@ export default function TestimonialsSection() {
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
+              style={{ touchAction: "pan-y" }}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = Math.abs(offset.x) * velocity.x;
                 if (swipe < -10000 || offset.x < -50) {
@@ -114,11 +118,16 @@ export default function TestimonialsSection() {
               }}
               className="absolute inset-0 w-full h-full p-0 md:p-6 flex items-center justify-center cursor-grab active:cursor-grabbing"
             >
-              <img
-                src={testimonialImages[imageIndex]}
-                alt={`Client Transformation ${imageIndex + 1}`}
-                className="w-full h-full object-contain drop-shadow-2xl pointer-events-none"
-              />
+              <div className="relative w-full h-full flex items-center justify-center">
+                <Image
+                  src={testimonialImages[imageIndex]}
+                  alt={`Client Transformation ${imageIndex + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  className="object-contain pointer-events-none select-none"
+                  priority={imageIndex === 0}
+                />
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>

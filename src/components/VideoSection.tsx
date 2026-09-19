@@ -11,7 +11,7 @@ export default function VideoSection() {
   const { video } = contentData.home;
 
   return (
-    <section className="py-24 md:py-36 bg-[#050505] relative overflow-hidden">
+    <section className="py-16 md:py-28 lg:py-36 bg-[#050505] relative overflow-hidden">
       <SectionCorners />
       {/* Ghost BG text */}
       <div className="absolute inset-0 flex items-center justify-end pr-4 pointer-events-none select-none overflow-hidden">
@@ -43,7 +43,7 @@ export default function VideoSection() {
                 style={{ background: "#CC0000", boxShadow: "0 0 8px rgba(204,0,0,0.8), 0 0 20px rgba(204,0,0,0.4)" }}
               />
             </div>
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92] mb-5">
+            <h2 className="text-[clamp(2rem,5vw,4rem)] font-[900] tracking-[-0.03em] text-white leading-[0.92] mb-5">
               {video.headline}
             </h2>
             <p className="text-[#BBBBBB] text-base md:text-lg max-w-xl mx-auto leading-relaxed">
@@ -87,7 +87,8 @@ export default function VideoSection() {
                     className="relative z-10 w-20 h-20 md:w-24 md:h-24 bg-[var(--accent)] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
                     style={{
                       boxShadow: "0 0 30px rgba(204,0,0,0.6), 0 0 60px rgba(204,0,0,0.3)",
-                      animation: "glow-pulse 2.5s ease-in-out infinite"
+                      animation: "glow-pulse 2.5s ease-in-out infinite",
+                      willChange: "opacity, transform",
                     }}
                   >
                     <Play className="w-7 h-7 md:w-9 md:h-9 text-white ml-1" fill="currentColor" />
@@ -120,7 +121,7 @@ export default function VideoSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 * idx }}
-                className="bg-[#0C0C0C] p-6 md:p-8 border border-[var(--border)] text-center transition-all duration-300 hover:border-[rgba(204,0,0,0.4)] group"
+                className="bg-[#0C0C0C] p-3 sm:p-5 md:p-8 border border-[var(--border)] text-center transition-all duration-300 hover:border-[rgba(204,0,0,0.4)] group"
                 style={{
                   transition: "border-color 0.3s, box-shadow 0.3s",
                 }}
@@ -131,10 +132,10 @@ export default function VideoSection() {
                   (e.currentTarget as HTMLElement).style.boxShadow = "none";
                 }}
               >
-                <p className="text-3xl md:text-4xl font-[900] text-shimmer font-[Oswald] tracking-tight leading-none group-hover:text-white transition-colors duration-300">
+                <p className="text-xl sm:text-2xl md:text-4xl font-[900] text-white font-[Oswald] tracking-tight leading-none group-hover:text-[var(--accent)] transition-colors duration-300">
                   {item.value}
                 </p>
-                <p className="text-[10px] md:text-[11px] text-[var(--muted)] mt-2 uppercase tracking-[0.2em] font-medium">
+                <p className="text-[9px] sm:text-[10px] md:text-[11px] text-[var(--muted)] mt-1.5 sm:mt-2 uppercase tracking-[0.12em] sm:tracking-[0.2em] font-medium">
                   {item.label}
                 </p>
               </motion.div>
