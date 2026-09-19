@@ -1,0 +1,161 @@
+{
+  "global": {
+    "brand": {
+      "name": "RETHINK",
+      "logoUrl": "/Logo/logo.png"
+    },
+    "navbar": {
+      "links": [
+        { "href": "#about", "label": "about", "id": "about" },
+        { "href": "#process", "label": "process", "id": "process" },
+        { "href": "#programs", "label": "programs", "id": "programs" }
+      ],
+      "cta": {
+        "label": "JOIN NOW",
+        "href": "#cta"
+      }
+    },
+    "footer": {
+      "subtitle": "A customized fitness transformation program with expert coaching.",
+      "copyright": "© 2026 Rethink Fitness. All rights reserved.",
+      "sections": [
+        {
+          "title": "Company",
+          "links": ["About", "Blog", "Careers"]
+        },
+        {
+          "title": "Programs",
+          "links": ["30-Day", "90-Day", "180-Day"]
+        },
+        {
+          "title": "Support",
+          "links": ["FAQ", "Contact", "Privacy"]
+        },
+        {
+          "title": "Social",
+          "links": ["Instagram", "Twitter", "YouTube"]
+        }
+      ],
+      "bottomLinks": ["Terms", "Privacy", "Cookies"]
+    }
+  },
+  "home": {
+    "hero": {
+      "eyeBrow": "Elite Fitness Coaching",
+      "headline": {
+        "part1": "TRANSFORM YOUR BODY.\n",
+        "part2": "TRANSFORM ",
+        "part3": "YOUR LIFE."
+      },
+      "subtext": "A customized fitness transformation program with expert coaching, accountability, nutrition guidance, and result-focused training.",
+      "buttons": [
+        { "label": "Book Your Free Fitness Assessment", "href": "#cta" },
+        { "label": "LEARN MORE", "href": "#about" }
+      ],
+      "stats": [
+        { "value": "1000", "suffix": "+", "label": "Transformations" },
+        { "value": "99", "suffix": "%", "label": "Success Rate" },
+        { "value": "10", "suffix": "+", "label": "Years" }
+      ],
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310519663698639650/GCtMDoRQXGjHc28ogHbyFy/hero-athlete-dark-4LpLZgkEoBtWrwM6rfQBug.webp"
+    },
+    "video": {
+      "eyeBrow": "Our Story",
+      "headline": "WATCH THE TRANSFORMATION",
+      "subtext": "See how we've transformed 1000+ lives. The science behind our system, explained in 10 minutes.",
+      "thumbnail": "https://d2xsxph8kpxj0f.cloudfront.net/310519663698639650/GCtMDoRQXGjHc28ogHbyFy/gym-facility-dark-U77KW7vk2kZ9Q4SSuVX7hv.webp",
+      "duration": "10:24",
+      "stats": [
+        { "value": "10 MIN", "label": "Watch Time" },
+        { "value": "100%", "label": "Science-Based" },
+        { "value": "FREE", "label": "No Card Required" }
+      ]
+    },
+    "statsBar": [
+      { "label": "LIVES CHANGED", "value": "1,000", "suffix": "+" },
+      { "label": "SUCCESS RATE", "value": "99", "suffix": "%" },
+      { "label": "BODY FAT LOST", "value": "22", "suffix": "%" },
+      { "label": "YEARS EXPERIENCE", "value": "10", "suffix": "+" }
+    ],
+    "about": {
+      "eyeBrow": "Why Us",
+      "headline": "Why Rethink\nTransformation\nProgram?",
+      "subtext": "Unlike traditional personal training, our Transformation Program combines personalized coaching with a motivating group environment, helping members stay consistent, accountable, and focused on results.",
+      "features": [
+        { "icon": "Check", "title": "Customized workout planning", "desc": "" },
+        { "icon": "Check", "title": "Dedicated transformation coaches", "desc": "" },
+        { "icon": "Check", "title": "Goal-oriented approach", "desc": "" },
+        { "icon": "Check", "title": "Progress tracking", "desc": "" },
+        { "icon": "Check", "title": "Nutrition guidance", "desc": "" },
+        { "icon": "Check", "title": "No separate gym membership required", "desc": "" }
+      ]
+    },
+    "transformation": {
+      "eyeBrow": "The Process",
+      "headline": "HOW IT WORKS",
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310519663698639650/GCtMDoRQXGjHc28ogHbyFy/transformation-split-hgawpuoqhp6pakMYHuCJKr.webp",
+      "phases": [
+        { "num": "01", "phase": "Assess", "desc": "We understand your goals, lifestyle, and current fitness level." },
+        { "num": "02", "phase": "Plan", "desc": "A customized transformation roadmap is created for you." },
+        { "num": "03", "phase": "Train", "desc": "Train under expert coaches in a structured transformation environment." },
+        { "num": "04", "phase": "Transform", "desc": "Track progress regularly and achieve measurable results." }
+      ]
+    },
+    "programs": {
+      "eyeBrow": "Pricing",
+      "headline": "Transformation Packages",
+      "subtext": "",
+      "whatsIncluded": [
+        "Customized Training Plan",
+        "Goal-Based Programming",
+        "Dedicated Coaches",
+        "Regular Assessments",
+        "Progress Tracking",
+        "Nutrition Guidance",
+        "Accountability Support",
+        "Community Motivation",
+        "Gym Access Included"
+      ],
+      "items": [
+        { "title": "30-Day Transformation", "subtitle": "No Separate Gym Membership Required", "price": "₹10,000", "period": "", "features": ["Customized Training Plan", "Nutrition Guidance", "Coach Support", "Progress Tracking", "Gym Access Included"], "highlighted": false },
+        { "title": "90-Day Transformation", "subtitle": "Save ₹6,000", "price": "₹24,000", "period": "", "features": ["Everything in the 30-Day Program", "Recommended for sustainable results"], "highlighted": true },
+        { "title": "180-Day Transformation", "subtitle": "Save ₹25,000", "price": "₹35,000", "period": "", "features": ["Everything in the 90-Day Program", "Best for complete body transformation and long-term lifestyle change."], "highlighted": false }
+      ]
+    },
+    "whyChooseUs": {
+      "headline": "Why Members Choose Rethink Fitness",
+      "features": [
+        "Expert Coaches",
+        "Proven Transformation System",
+        "Structured Accountability",
+        "Personalized Attention",
+        "Supportive Community",
+        "Sustainable Results"
+      ]
+    },
+    "testimonials": {
+      "eyeBrow": "Results",
+      "headline": "CLIENT STORIES",
+      "images": [
+        "/Clients/client-01.png",
+        "/Clients/client-02.png",
+        "/Clients/client-03.png",
+        "/Clients/client-04.png",
+        "/Clients/client-05.png",
+        "/Clients/client-06.png",
+        "/Clients/client-07.png",
+        "/Clients/client-08.png",
+        "/Clients/client-09.png",
+        "/Clients/client-10.png",
+        "/Clients/client-11.png",
+        "/Clients/client-12.png"
+      ]
+    },
+    "cta": {
+      "headline": "Your Transformation Starts Here",
+      "subtext": "Take the first step towards a stronger, healthier, and more confident version of yourself.",
+      "button": { "label": "Book Your Free Fitness Assessment Today", "href": "#cta" },
+      "footer": ""
+    }
+  }
+}
